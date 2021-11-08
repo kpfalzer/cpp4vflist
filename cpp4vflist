@@ -1,0 +1,5 @@
+#!/bin/csh -f
+
+# Need to ignore stderr unless its fatal.
+# Ignore exit code since it can be != 0 (even if ok).
+/bin/bash -c "/bin/cpp -include ./cpp4vflist.h -x c -P ${*} 2> >(fgrep -i 'fatal error')" || exit 0
